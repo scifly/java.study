@@ -1,26 +1,25 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
-        Scanner in = new Scanner(new File("test.txt"));
-        List<String> students = new ArrayList<String>();
+        LinkedList<String> names = new LinkedList<>();
+        names.push("Caleb");
+        names.push("Sue");
+        names.push("Sally");
 
-        while (in.hasNextLine()) {
-            students.add(in.nextLine());
+        ListIterator<String> it = names.listIterator();
+        it.next();
+        it.next();
+        it.add("Susan");
+
+        for (String name : names) {
+            System.out.println(name);
         }
-        for (int i = 0; i < students.size(); i++) {
-            System.out.println("name: " + students.get(i));
-        }
-
-        in.close();
 
     }
 }
